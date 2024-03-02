@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // delete task
       deleteTask.classList.add("fa-regular", "fa-trash-can");
-      deleteTask.addEventListener("click", deleteItem); // Add event listener for deleteTask
+      deleteTask.addEventListener("click", deleteItem);
       li.appendChild(deleteTask);
       ul.appendChild(li);
 
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     li.remove();
   }
 
-  var typed = new Typed(".text-animation", {
+  let typed = new Typed(".text-animation", {
     strings: ["WRITE YOUR TASKS"],
     typeSpeed: 50,
   });
