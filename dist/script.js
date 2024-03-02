@@ -64,3 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
     typeSpeed: 50,
   });
 });
+
+// dark mode
+const themeToggle = document.querySelector("#theme-toggle");
+const themeIndicator = document.querySelector("#theme-indicator");
+
+themeToggle.addEventListener("click", () => {
+  document.querySelector("body").classList.toggle("dark");
+  document.querySelector("#theme-indicator").classList.toggle("left-0");
+  document.querySelector("#theme-indicator").classList.toggle("right-0");
+});

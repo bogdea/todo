@@ -13,32 +13,45 @@
     <link href="./output.css" rel="stylesheet" />
     <title>Document</title>
   </head>
-  <body class="relative p-2 h-lvh">
-    <div class="bottom-2 absolute">
-      <a href="https://github.com/bogdea/todo" target="_blank"
-        ><img src="../media/github.gif" alt="github" class="h-14"
-      /></a>
+  <body class="relative dark:bg-black p-2 h-lvh">
+    <!-- header -->
+    <div class="flex justify-between items-center px-2 h-20">
+      <div>
+        <a href="https://github.com/bogdea/todo" target="_blank"
+          ><img src="../media/github.gif" alt="github" class="h-14 dark:invert"
+        /></a>
+      </div>
+
+      <button
+        id="theme-toggle"
+        class="relative dark:border-white bg-black dark:bg-white border border-black rounded-full w-20 h-10 \"
+      >
+        <div
+          id="theme-indicator"
+          class="top-0 left-0 absolute bg-white dark:bg-black rounded-full w-1/2 h-full"
+        ></div>
+      </button>
     </div>
 
     <div class="top-[200px] right-0 left-0 absolute px-4 text-center">
       <h1 class="font-medium text-[35px] sm:text-6xl" id="text-animation">
-        <span class="text-animation"></span>
+        <span class="text-animation dark:text-white"></span>
       </h1>
 
       <form class="flex justify-center mx-auto my-5 px-2 max-w-[767px]">
         <input
           type="text"
-          class="border-2 px-2 py-3 border-black rounded-l-xl w-[80%] text-input outline-none"
+          class="border-2 dark:border-white px-2 py-3 border-black rounded-l-xl w-[80%] text-input outline-none"
         />
         <input
           type="button"
           value="+"
           onclick="addItem()"
-          class="border-2 px-6 border-black border-l-0 rounded-r-xl font-bold text-xl"
+          class="border-2 dark:border-white dark:bg-white px-6 border-black border-l-0 dark:border-l-black dark:border-l-2 rounded-r-xl font-bold text-xl"
         />
       </form>
 
-      <ul class="text-[22px]"></ul>
+      <ul class="text-[22px] dark:text-white"></ul>
     </div>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
