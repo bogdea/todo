@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       ul.appendChild(li);
 
-      // save to local storage
       saveToLocalStorage();
 
       textInput.value = "";
@@ -49,10 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function toggleIcon(event) {
     const circleCheck = event.target;
 
-    circleCheck.classList.toggle("fa-regular");
     circleCheck.classList.toggle("fa-solid");
+    circleCheck.classList.toggle("fa-regular");
 
     const li = circleCheck.parentElement;
+
     if (circleCheck.classList.contains("fa-solid")) {
       li.classList.add("line-through");
     } else {
@@ -78,7 +78,18 @@ document.addEventListener("DOMContentLoaded", function () {
       const deleteTask = document.createElement("i");
 
       li.innerHTML = task.text + " ";
-      circleCheck.classList.add("fa", "fa-sharp", "fa-circle-check");
+      circleCheck.classList.add(
+        "fa",
+        "fa-sharp",
+        "fa-regular",
+        "fa-circle-check"
+      );
+
+      if (task.isChecked) {
+        circleCheck.classList.add("fa-solid");
+        li.classList.add("line-through");
+      }
+
       circleCheck.addEventListener("click", toggleIcon);
       li.appendChild(circleCheck);
 
@@ -87,11 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
       li.appendChild(deleteTask);
 
       ul.appendChild(li);
-
-      if (task.isChecked) {
-        circleCheck.classList.add("fa-solid");
-        li.classList.add("line-through");
-      }
     });
   };
 
@@ -114,7 +120,7 @@ const saveToLocalStorage = () => {
 
     const task = {
       text: li.innerText.trim(),
-      isChecked: circleCheck.classList.contains("fa-solid"),
+      isChecked: li.classList.contains("line-through"),
     };
 
     tasks.push(task);
