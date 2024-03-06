@@ -69,6 +69,15 @@ document.addEventListener("DOMContentLoaded", function () {
     saveToLocalStorage();
   }
 
+  // dark mode
+  const themeToggle = document.querySelector("#theme-toggle");
+
+  themeToggle.addEventListener("click", () => {
+    document.querySelector("body").classList.toggle("dark");
+    document.querySelector("#theme-indicator").classList.toggle("left-0");
+    document.querySelector("#theme-indicator").classList.toggle("right-0");
+  });
+
   const loadFromLocalStorage = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
