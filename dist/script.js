@@ -69,14 +69,42 @@ document.addEventListener("DOMContentLoaded", function () {
     saveToLocalStorage();
   }
 
-  // dark mode
+  // dark mode functionality
+
   const themeToggle = document.querySelector("#theme-toggle");
 
   themeToggle.addEventListener("click", () => {
     document.querySelector("body").classList.toggle("dark");
     document.querySelector("#theme-indicator").classList.toggle("left-0");
     document.querySelector("#theme-indicator").classList.toggle("right-0");
+
+    saveDarkModeState();
   });
+
+  const loadDarkModeState = () => {
+    const darkModeState = localStorage.getItem("darkModeState");
+    if (darkModeState) {
+      const isDarkMode = JSON.parse(darkModeState);
+      document.querySelector("body").classList.toggle("dark", isDarkMode);
+      document
+        .querySelector("#theme-indicator")
+        .classList.toggle("left-0", isDarkMode);
+      document
+        .querySelector("#theme-indicator")
+        .classList.toggle("right-0", !isDarkMode);
+    }
+  };
+
+  // dark mode state
+
+  const saveDarkModeState = () => {
+    const isDarkMode = document
+      .querySelector("body")
+      .classList.contains("dark");
+    localStorage.setItem("darkModeState", JSON.stringify(isDarkMode));
+  };
+
+  loadDarkModeState();
 
   const loadFromLocalStorage = () => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -110,9 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // load tasks on page load
   loadFromLocalStorage();
 
+  // typed js animation
   let typed = new Typed(".text-animation", {
     strings: ["WRITE YOUR TASKS"],
     typeSpeed: 50,
