@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let typed = new Typed(".text-animation", {
     strings: ["WRITE YOUR TASKS"],
     typeSpeed: 50,
+    showCursor: false,
   });
 });
 
