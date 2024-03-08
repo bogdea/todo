@@ -19,7 +19,7 @@ A simple and minimalist project designed to manage your tasks efficiently.
 
 ## Live Demo
 
-You can experience a live demo of the web app by visiting [this link](https://bogdea.github.io/todo/)
+You can experience a live demo of the web app by visiting [this link](https://bogdea.github.io/todo/).
 
 ## Getting Started
 
