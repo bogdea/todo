@@ -5,7 +5,7 @@ import AddTask from "./components/ui/AddTask";
 
 const App = () => {
   return (
-    <div className="container my-5 max-w-[500px]">
+    <div className="container relative my-5 max-w-[500px]">
       <Header />
       <Tasks />
       <AddTask />
