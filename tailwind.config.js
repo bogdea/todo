@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         lightGray: "#868e96",
+        oceanBlue: "#072ac8",
       },
     },
     container: {
